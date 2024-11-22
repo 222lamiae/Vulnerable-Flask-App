@@ -22,8 +22,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        # Remplacer MySQL-python par mysqlclient
-        sed -i 's/MySQL-python/mysqlclient/g' app/requirements.txt
+        # Installer mysqlclient pour remplacer MySQL-python
+        pip install mysqlclient
         pip install -r app/requirements.txt
 
     - name: Install Pyraider
