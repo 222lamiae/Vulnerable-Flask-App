@@ -1,0 +1,40 @@
+name: Pyraider Vulnerability Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Install Pyraider
+      run: |
+        pip install pyraider
+
+    - name: Run Pyraider vulnerability scan
+      run: |
+        pyraider scan > pyraider_report.txt
+
+    - name: Upload Pyraider Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: pyraider-report
+        path: pyraider_report.txt
