@@ -1,7 +1,7 @@
 name: Pyraider Vulnerability Analysis
 
 on:
-  workflow_dispatch: # Déclenchement manuel
+  workflow_dispatch:  # Déclenchement manuel
 
 jobs:
   scan:
@@ -16,13 +16,13 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Upgrade pip, setuptools, and wheel
+    - name: Upgrade setuptools and wheel
       run: |
-        pip install --upgrade pip setuptools wheel
+        pip install --upgrade setuptools wheel
 
     - name: Install dependencies
       run: |
-        pip install -r app/requirements.txt
+        pip install -r Vulnerable-Flask-App/app/requirements.txt
 
     - name: Install Pyraider
       run: |
