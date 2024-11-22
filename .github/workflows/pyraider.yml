@@ -1,7 +1,7 @@
 name: Pyraider Vulnerability Analysis
 
 on:
-  workflow_dispatch:  # Déclencheur manuel
+  workflow_dispatch: # Déclenchement manuel
 
 jobs:
   scan:
@@ -15,6 +15,10 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '3.8'
+
+    - name: Upgrade pip, setuptools, and wheel
+      run: |
+        pip install --upgrade pip setuptools wheel
 
     - name: Install dependencies
       run: |
