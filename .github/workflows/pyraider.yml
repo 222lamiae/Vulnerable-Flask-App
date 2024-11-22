@@ -1,12 +1,7 @@
 name: Pyraider Vulnerability Analysis
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # Déclencheur manuel
 
 jobs:
   scan:
